@@ -19,3 +19,10 @@ function animate() {
   cylinder.rotation.y += 0.01;
   renderer.render(scene, camera);
 }
+
+function prepSTL() {
+  const buffer = exportSTL.fromMesh(mesh);
+  const blob = new Blob([buffer], { type: exportSTL.mimeType });
+  saveAs(blob, 'cube.stl');
+
+}
